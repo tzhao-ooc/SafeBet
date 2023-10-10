@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safebet</title>
+    <script src="/js/homeScript.js"></script>
+</head>
+<body>
+    <header>
+        LOGO
+        <!-- here is the navigation bar where we will have home
+        user page, games on today, bet outcomes, and user stats-->
+        <nav>
+            <a href="./home.html">HOME</a> <br>
+            <a href="">USER PAGE</a> <br>
+            <a href="./gamestoday.html">GAMES ON TODAY</a> <br>
+            <a href="">BET OUTCOMES</a> <br>
+            <a href="">USER STATS</a> <br>
+        </nav>
+    </header>
+    <!-- this is where our main information for each page is -->
+    <!-- cannot have id with same name somewhere else-->
+    <main id="mainpart">
+        <h1>HEADER TEXT</h1>
+        <section class="sec1">
+            text for section 1
+        </section>
+        <section class="sec2">
+            text for section 2
+        </section>
+        
+        <!--sending all the information below for the form to an endpoint called submit!!!!-->
+        <form action="/submit">
+            <fieldset>
+                <legend>LOGIN</legend>
+                Username: <input name="uname" tpye="text" id="username"><br><br>
+                Password: <input name="pword" type="text" id="password"><br><br>
+                <input type="submit" value="Login"> <br><br>
+                
+                <!-- signup path -->
+                <div> Dont have an account yet? <a href="./signup.html">Sign up</a>.</div>
+                
+
+
+            </fieldset>
+        </form>
+        <!--table allows us to display information-->
+        <table>
+            <tr><th>Name</th><th>Age</th><th>Password</th></tr>
+            <tr><td>Bob</td><td>20</td><td>Password123</td></tr>
+            <tr><td>jack</td><td>19</td><td>Password456</td></tr>
+        </table>
+
+    </main>
+    <footer>
+        COPYRIGHT SAFEBET
+    </footer>
+</body>
+</html>

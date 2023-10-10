@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ... Other head elements ... -->
+    <script>
+        window.onload = function() {
+            fetch('/nflodds')
+            .then(response => response.json())
+            .then(data => {
+                // Here, you extract the necessary details from data and display it in your HTML.
+                // This is just a simple example. Adjust as necessary.
+                let output = '<h2>Today\'s NFL Games:</h2>';
+                data.forEach(game => {
+                    let oddsText = "";
+                    let bookmakerName = game.bookmakers[0].title;
+
+                    // Assuming we are focusing on the 'h2h' market for simplicity
+                    let h2hMarket = game.bookmakers[0].markets.find(market => market.key === "h2h");
+                    if (h2hMarket) {
+                        h2hMarket.outcomes.forEach(outcome => {
+                            oddsText += `${outcome.name}: ${outcome.price}, `;
+                        });
+                        // Removing the trailing comma and space
+                        oddsText = oddsText.slice(0, -2);
+                    }               
+
+                    output += `
+                        <div>
+                            <strong>${game.home_team}</strong> vs. <strong>${game.away_team}</strong><br>
+                            Odds: ${oddsText}<br>
+                            Bookmaker: ${bookmakerName}
+                        </div><br>`;
+                });
+                document.getElementById('gamesContainer').innerHTML = output;
+
+            });
+        };
+    </script>
+</head>
+<body>
+    <!-- ... Other body elements ... -->
+
+    <div id="gamesContainer"></div>
+
+</body>
+</html>
