@@ -2,11 +2,15 @@
 
 ### PostgreSQL installation 
 
-[download](https://www.postgresql.org/download/)
+[download](https://www.postgresql.org/download/) version 15
 
 ```code
 # succeed if you can run this in terminal
 psql --help
+
+## or for mac os, run
+brew install postgresql@15
+## you may need add path to your .bash / .zshrc file to run psql commands in terminal
 ```
 
 
