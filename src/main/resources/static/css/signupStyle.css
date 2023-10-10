@@ -1,0 +1,48 @@
+
+html{
+
+    background-color: rgb(10, 84, 93);
+}
+
+h1{
+    color:rgb(137, 153, 158);
+    font-family: Arial;
+    font-size: 40px;
+    font-weight: lighter;
+    text-align: center;
+    margin-top: 25vh;
+    height: 5vh;
+}
+
+/* I dont know how to center this box bahaha */
+form{
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bolder;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    
+}
+fieldset{
+
+    background-color: rgb(137, 153, 158);
+    background-size: 20px 5px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    min-width: 350px;
+    border: none;
+
+}
+
+footer{
+    color:rgb(137, 153, 158);
+    font-size: 18px;
+    position: fixed;
+    bottom: 8px;
+    left: 8px;
+}
+
+
+
