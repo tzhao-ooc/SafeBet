@@ -44,5 +44,13 @@ footer{
     left: 8px;
 }
 
-
+.errorMsg {
+	color:  red;
+	margin: 0px 0px 0px 0px;
+	position: relative;
+	left: 64px;
+	padding: 0px;
+	font-style: italic;
+	font-size: 0.8em;
+}
 
