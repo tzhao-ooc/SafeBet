@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- ... Other head elements ... -->
+    
+    <!-- Want to create different sections for each league and make the odds a button users can press-->
     <script>
         window.onload = function() {
             fetch('/nflodds')
             .then(response => response.json())
             .then(data => {
-                // Here, you extract the necessary details from data and display it in your HTML.
-                // This is just a simple example. Adjust as necessary.
+    
                 let output = '<h2>Today\'s NFL Games:</h2>';
                 data.forEach(game => {
                     let oddsText = "";
                     let bookmakerName = game.bookmakers[0].title;
 
-                    // Assuming we are focusing on the 'h2h' market for simplicity
+
                     let h2hMarket = game.bookmakers[0].markets.find(market => market.key === "h2h");
                     if (h2hMarket) {
                         h2hMarket.outcomes.forEach(outcome => {
@@ -38,7 +38,7 @@
     </script>
 </head>
 <body>
-    <!-- ... Other body elements ... -->
+
 
     <div id="gamesContainer"></div>
 
