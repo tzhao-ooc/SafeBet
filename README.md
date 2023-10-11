@@ -4,7 +4,7 @@
 
 ### Features
 - User sign up and log in: Allow user to sign up and log in. So far, the application will only direct succesful sign up/ log in to a new page which will re-designed in later iterations.
-- Games On Today page: allow user to check daily game events. We will save game events to database and allow user to select game events to bet.
+- Games On Today page: allow user to check daily game events via API integration. We will save game events to database and allow user to select game events to bet.
 - User Stat page: So far, we only have a simple template.
 
 ### Database
