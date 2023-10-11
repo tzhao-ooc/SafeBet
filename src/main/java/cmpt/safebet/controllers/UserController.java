@@ -36,9 +36,9 @@ public class UserController {
     public String addUser(@RequestParam Map<String, String> newuser, HttpServletResponse response){
         
         System.out.println("ADD user");
-        String newName = newuser.get("name");
+        String newName = newuser.get("username");
         String newPwd = newuser.get("password");
-        String newEmail = newuser.get("userEmail");
+        String newEmail = newuser.get("usrEmail");
         String confirmP = newuser.get("comfirmP");
         // if (newEmail == confirmP) {
             
