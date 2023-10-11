@@ -7,8 +7,15 @@
 - Games On Today page: allow user to check daily game events. We will save game events to database and allow user to select game events to bet.
 - User Stat page: So far, we only have a simple template.
 
-### Databae
+### Database
 - User table Created: Store userid, username, password and email. We will add more information in later iterations such as role, age, etc.
+- Game and currency functionality to come soon.
+
+### Group Dynamic
+- Effective communication
+- Solid contributions
+- Lots of teamwork
+- healthy timeline
 
 
 
