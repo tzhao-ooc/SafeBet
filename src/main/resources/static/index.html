@@ -31,12 +31,18 @@
         </section>
         
         <!--sending all the information below for the form to an endpoint called submit!!!!-->
-        <form action="/submit">
+        <form action="/login" method="post">
             <fieldset>
                 <legend>LOGIN</legend>
-                Username: <input name="uname" tpye="text" id="username"><br><br>
-                Password: <input name="pword" type="text" id="password"><br><br>
-                <input type="submit" value="Login"> <br><br>
+                <p>
+                    <label for = "username "> Username </label>
+                    <input type="text" id = "username" name="username" placeholder="enter user" class="loginInput">
+                </p>
+                <p>
+                    <label for = "password"> Password </label>
+                    <input type="text" id = "password" name="password" placeholder="enter pass" class="loginInput">
+                </p>
+                <input id="submitBTN" class="btn" type="submit" value="Login">
                 
                 <!-- signup path -->
                 <div> Dont have an account yet? <a href="./signup.html">Sign up</a>.</div>

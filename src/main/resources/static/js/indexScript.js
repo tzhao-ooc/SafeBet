@@ -1,25 +1,69 @@
 let button; // "Login" signup entry
-let signinInfo = [];
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    button = document.querySelector('input[value="Login"]');
-    button.addEventListener('click', function(evt){
+    function showErrMsg(ele) {
+        let temp = ele;
+        if(temp.nextElementSibling) return;
+        ele.style.color = "red";
+        ele.style.outlineColor = "red";
+        temp.after(document.createElement("span"));
+        temp.nextElementSibling.classList.add("errorMsg");
+    }
 
-        evt.preventDefault();
-        signinInfo = [] //so the array never goes above length = 2
 
-        signinInfo.push(document.getElementById('username').value);
-        signinInfo.push(document.getElementById('password').value);
+    function ClearErrMsg(ele) {
+        let temp = ele;
+        if (!temp.nextElementSibling) return;
+        ele.style.color = "black";
+        ele.style.outlineColor = "lightgray";
+        temp.nextElementSibling.remove();
+    }
 
+    document.getElementsByName("username")[0].addEventListener('change', checkUsername)
+    document.getElementsByName("password")[0].addEventListener('change', checkPwd)
 
-        //FUTURE: here we will receieve whether the login info exists/is correct
-        // and then alert the user accordingly.
-        
-        console.log(signinInfo) // see the info entry real-time in console view
-    })
+    function checkUsername (evt) {
+        var obj = evt.target;
+        if (obj.value.length < 5) {
+           
+            showErrMsg(obj);
+            console.log(obj.value);
+            console.log(obj.nextElementSibling);
+            obj.nextElementSibling.innerHTML = "<br/>  Username must be at least 5 characters in length";
+            return;
+        } else {
+            ClearErrMsg(obj);
+            readySubmit();
+        }
+    }
 
-   
+    function checkPwd (evt) {
+        var obj = evt.target;
+        if (obj.value.length < 4) {
+            showErrMsg(obj);
+            console.log(obj.value);
+            console.log(obj.nextElementSibling);
+            obj.nextElementSibling.innerHTML = "<br/>  Password must be at least 4 characters in length";
+            return;
+        } else {
+            ClearErrMsg(obj);
+            readySubmit();
+        }
+    }
+    
+    function readySubmit () {
+        var error = 0;
+        let inputElem = document.querySelectorAll('.usrInput');
+        for ( let i of inputElem) {
+            if (i.value == "") error++;
+            if (i.nextElementSibling) error++;
+        }
+        if (error == 0) {
+            document.getElementById("submitBTN").removeAttribute("disabled");
+        }
+    }
+    
 
 });
 

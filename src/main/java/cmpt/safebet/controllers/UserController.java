@@ -50,5 +50,37 @@ public class UserController {
             return "users/userAdded";
         
     }
+
+    @GetMapping("/login")
+    public String getLogin(Model model, HttpServletRequest request, HttpSession session){
+        User user = (User) session.getAttribute("session_user");
+        if (user == null){
+            return "users/login";
+        }
+        else {
+            model.addAttribute("user",user);
+            return "users/protected";
+        }
+    }
+
+    @PostMapping("/login")
+    public String login(@RequestParam Map<String,String> formData, Model model, HttpServletRequest request, HttpSession session){
+        // processing login
+        String name = formData.get("username");
+        String pwd = formData.get("password");
+        List<User> userlist = userRepo.findByNameAndPassword(name, pwd);
+        if (userlist.isEmpty()){
+            return "users/login";
+        }
+        else {
+            // success
+            User user = userlist.get(0);
+            request.getSession().setAttribute("session_user", user);
+            model.addAttribute("user", user);
+            return "users/protected";
+        }
+    }
+
+    
     
 }
