@@ -1,5 +1,19 @@
 # SafeBet
 
+## Documentation
+
+### Features
+- User sign up and log in: Allow user to sign up and log in. So far, the application will only direct succesful sign up/ log in to a new page which will re-designed in later iterations.
+- Games On Today page: allow user to check daily game events. We will save game events to database and allow user to select game events to bet.
+- User Stat page: So far, we only have a simple template.
+
+### Databae
+- User table Created: Store userid, username, password and email. We will add more information in later iterations such as role, age, etc.
+
+
+
+
+## Other Information
 ### PostgreSQL installation 
 
 [download](https://www.postgresql.org/download/) version 15
@@ -21,14 +35,6 @@ brew install postgresql@15
   # add
   spring.datasource.url=jdbc:postgresql://dpg-cki4s0ce1qns73f52amg-a.oregon-postgres.render.com/safebetdb
 ```
-#### Information needed for DB connection:
--   Databse: safebetdb
--   Username:safebetdb_user
--   Password:rt85WlKak3ZupBshE4KZ7Jq78prGAlhq
--   Internal Database URL: postgres://safebetdb_user:rt85WlKak3ZupBshE4KZ7Jq78prGAlhq@dpg-cki4s0ce1qns73f52amg-a/safebetdb
--   External Database URL: postgres://safebetdb_user:rt85WlKak3ZupBshE4KZ7Jq78prGAlhq@dpg-cki4s0ce1qns73f52amg-a.oregon-postgres.render.com/safebetdb
--   PSQL Command: 
--     PASSWORD=rt85WlKak3ZupBshE4KZ7Jq78prGAlhq psql -h dpg-cki4s0ce1qns73f52amg-a.oregon-postgres.render.com -U safebetdb_user safebetdb
 
 
 ### Using docker to test if the application ready to Deploy:
