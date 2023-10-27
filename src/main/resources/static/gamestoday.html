@@ -1,15 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
-    <!-- Want to create different sections for each league and make the odds a button users can press-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safebet</title>
+    <script src="/js/indexScript.js"></script>
+
+    <style>
+        #gamesContainer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;  /* Adjust this to control the spacing between games */
+    }
+    h2 {
+        text-align: center;
+    }
+
+    .game {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: calc(33% - 20px);  /* This makes 3 games fit in a row; adjust as needed */
+        padding: 10px;
+        border: 1px solid #e0e0e0;  /* Add some border for clarity; adjust as needed */
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.1);  /* Optional: to give a slight shadow */
+    }
+
+    .team-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .team-name {
+        font-size: 16px;  /* Adjust as needed */
+    }
+
+    .team-odds {
+        font-size: 14px;  /* Adjust as needed */
+        color: #333;     /* Adjust as needed */
+    }
+
+    .versus {
+        margin: 0 15px;
+        font-size: 16px;
+    }
+
+    </style>
+</head>
+<body>
+    <header>
+        LOGO
+        <!-- here is the navigation bar where we will have home
+        user page, games on today, bet outcomes, and user stats-->
+        <nav>
+            <a href="./index.html">HOME</a> <br>
+            <a href="">USER PAGE</a> <br>
+            <a href="./gamestoday.html">GAMES ON TODAY</a> <br>
+            <a href="">BET OUTCOMES</a> <br>
+            <a href="./userstats.html">USER STATS</a> <br>
+        </nav>
+    </header>
     <script>
         window.onload = function() {
             fetch('/nflodds')
             .then(response => response.json())
             .then(data => {
     
-                let output = '<h2>Today\'s NFL Games:</h2>';
+                let output = '';
                 data.forEach(game => {
                     let oddsText = "";
                     let bookmakerName = game.bookmakers[0].title;
@@ -18,18 +76,24 @@
                     let h2hMarket = game.bookmakers[0].markets.find(market => market.key === "h2h");
                     if (h2hMarket) {
                         h2hMarket.outcomes.forEach(outcome => {
-                            oddsText += `${outcome.name}: ${outcome.price}, `;
+                            oddsText += ` ${outcome.price}, `;
                         });
                         // Removing the trailing comma and space
                         oddsText = oddsText.slice(0, -2);
                     }               
 
                     output += `
-                        <div>
-                            <strong>${game.home_team}</strong> vs. <strong>${game.away_team}</strong><br>
-                            Odds: ${oddsText}<br>
-                            Bookmaker: ${bookmakerName}
-                        </div><br>`;
+                        <div class="game">
+                            <div class="team-info">
+                                <div class="team-name">${game.home_team}</div>
+                                <div class="team-odds">${oddsText.split(",")[0]}</div>
+                            </div>
+                            <div class="versus">vs</div>
+                            <div class="team-info">
+                                <div class="team-name">${game.away_team}</div>
+                                <div class="team-odds">${oddsText.split(",")[1]}</div>
+                            </div>
+                        </div>`;
                 });
                 document.getElementById('gamesContainer').innerHTML = output;
 
@@ -39,8 +103,10 @@
 </head>
 <body>
 
-
-    <div id="gamesContainer"></div>
+    <h2>Today's NFL Games</h2>
+    <div id="gamesContainer"> </div>
+    
+    
 
 </body>
 </html>

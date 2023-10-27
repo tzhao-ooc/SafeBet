@@ -12,7 +12,7 @@ public class NFLController {
 
     @GetMapping("/nflodds")
     public String getNFLOdds() {
-        String url = BASE_URL + "?apiKey=" + API_KEY + "&regions=us&markets=h2h,spreads&oddsFormat=american";
+        String url = BASE_URL + "?apiKey=" + API_KEY + "&regions=us&markets=h2h,spreads&oddsFormat=decimal";
         RestTemplate restTemplate = new RestTemplate();
         String result = restTemplate.getForObject(url, String.class);
         return result; 
