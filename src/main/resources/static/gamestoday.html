@@ -67,8 +67,22 @@
 
                 let outputScores = '';
                 data.forEach(game => {
-                    let homeScore = game.home_score || 0;
-                    let awayScore = game.away_score || 0;
+                    let homeScore = 0;
+                    let awayScore = 0;
+        
+                    if (game.scores) {
+                        // Find the home team score
+                        const homeTeamScore = game.scores.find(score => score.name === game.home_team);
+                        if (homeTeamScore) {
+                            homeScore = homeTeamScore.score || 0;
+                        }
+
+                        // Find the away team score
+                        const awayTeamScore = game.scores.find(score => score.name === game.away_team);
+                        if (awayTeamScore) {
+                            awayScore = awayTeamScore.score || 0;
+                        }
+                    }
                     let gameStatus = game.status === "completed" ? "Completed" : "Ongoing";
 
                     outputScores += `

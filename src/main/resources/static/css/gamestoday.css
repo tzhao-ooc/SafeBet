@@ -2,7 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;  /* Adjust this to control the spacing between games */
+    gap: 20px;  /
 }
 h2 {
     text-align: center;
@@ -12,10 +12,10 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: calc(33% - 20px);  /* This makes 3 games fit in a row; adjust as needed */
+    width: calc(33% - 20px);  
     padding: 10px;
-    border: 1px solid #e0e0e0;  /* Add some border for clarity; adjust as needed */
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);  /* Optional: to give a slight shadow */
+    border: 1px solid #e0e0e0;  
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);  
 }
 
 .team-info {
@@ -25,12 +25,12 @@ h2 {
 }
 
 .team-name {
-    font-size: 16px;  /* Adjust as needed */
+    font-size: 16px;  
 }
 
 .team-odds {
-    font-size: 14px;  /* Adjust as needed */
-    color: #333;     /* Adjust as needed */
+    font-size: 14px;  
+    color: #333;     
 }
 
 .versus {
