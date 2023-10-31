@@ -1,0 +1,48 @@
+#gamesContainer, #scoresContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;  /* Adjust this to control the spacing between games */
+}
+h2 {
+    text-align: center;
+}
+
+.game {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(33% - 20px);  /* This makes 3 games fit in a row; adjust as needed */
+    padding: 10px;
+    border: 1px solid #e0e0e0;  /* Add some border for clarity; adjust as needed */
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);  /* Optional: to give a slight shadow */
+}
+
+.team-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.team-name {
+    font-size: 16px;  /* Adjust as needed */
+}
+
+.team-odds {
+    font-size: 14px;  /* Adjust as needed */
+    color: #333;     /* Adjust as needed */
+}
+
+.versus {
+    margin: 0 15px;
+    font-size: 16px;
+}
+
+/* New styles for game status */
+.game-status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    font-weight: bold;
+}

@@ -4,49 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Safebet</title>
     <script src="/js/indexScript.js"></script>
+    <link rel="stylesheet" href="/css/gamestoday.css">
 
-    <style>
-        #gamesContainer {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;  /* Adjust this to control the spacing between games */
-    }
-    h2 {
-        text-align: center;
-    }
-
-    .game {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: calc(33% - 20px);  /* This makes 3 games fit in a row; adjust as needed */
-        padding: 10px;
-        border: 1px solid #e0e0e0;  /* Add some border for clarity; adjust as needed */
-        box-shadow: 2px 2px 5px rgba(0,0,0,0.1);  /* Optional: to give a slight shadow */
-    }
-
-    .team-info {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .team-name {
-        font-size: 16px;  /* Adjust as needed */
-    }
-
-    .team-odds {
-        font-size: 14px;  /* Adjust as needed */
-        color: #333;     /* Adjust as needed */
-    }
-
-    .versus {
-        margin: 0 15px;
-        font-size: 16px;
-    }
-
-    </style>
 </head>
 <body>
     <header>
@@ -61,8 +20,11 @@
             <a href="./userstats.html">USER STATS</a> <br>
         </nav>
     </header>
+    <!-- get the odds information-->
     <script>
         window.onload = function() {
+            // Use Promise.all to handle mutiple fetch requests (link below)
+            // https://rapidapi.com/guides/fetch-data-multiple-apis-with-fetch
             fetch('/nflodds')
             .then(response => response.json())
             .then(data => {
@@ -98,13 +60,48 @@
                 document.getElementById('gamesContainer').innerHTML = output;
 
             });
+
+            fetch('/nflscores')
+            .then(response => response.json())
+            .then(data => {
+
+                let outputScores = '';
+                data.forEach(game => {
+                    let homeScore = game.home_score || 0;
+                    let awayScore = game.away_score || 0;
+                    let gameStatus = game.status === "completed" ? "Completed" : "Ongoing";
+
+                    outputScores += `
+                    <div class="game">
+                        <div class="team-info">
+                            <div class="team-name">${game.home_team}</div>
+                            <div class="team-score">${homeScore}</div>
+                        </div>
+                        <div class="versus">vs</div>
+                        <div class="team-info">
+                            <div class="team-name">${game.away_team}</div>
+                            <div class="team-score">${awayScore}</div>
+                        </div>
+                        <div class="game-status">
+                            <div class="status-info"> <br> Game status:  ${gameStatus}</div>
+                        </div>
+
+                    </div>`;
+        });
+        document.getElementById('scoresContainer').innerHTML = outputScores; 
+
+    });
         };
+
     </script>
 </head>
 <body>
 
     <h2>Today's NFL Games</h2>
     <div id="gamesContainer"> </div>
+    <br>
+    <h2>Scores for the associated NFL Games</h2>
+    <div id="scoresContainer"> </div>
     
     
 
