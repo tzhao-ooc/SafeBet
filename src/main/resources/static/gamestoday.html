@@ -20,6 +20,7 @@
             <a href="./userstats.html">USER STATS</a> <br>
         </nav>
     </header>
+
     <!-- get the odds information-->
     <script>
         window.onload = function() {
@@ -49,11 +50,13 @@
                             <div class="team-info">
                                 <div class="team-name">${game.home_team}</div>
                                 <div class="team-odds">${oddsText.split(",")[0]}</div>
+                                <button class="betButton" data-team="${game.home_team}" data-odds="${oddsText.split(",")[0]}">Bet</button>
                             </div>
                             <div class="versus">vs</div>
                             <div class="team-info">
                                 <div class="team-name">${game.away_team}</div>
                                 <div class="team-odds">${oddsText.split(",")[1]}</div>
+                                <button class="betButton" data-team="${game.away_team}" data-odds="${oddsText.split(",")[1]}">Bet</button>
                             </div>
                         </div>`;
                 });
@@ -105,8 +108,7 @@
         document.getElementById('scoresContainer').innerHTML = outputScores; 
 
     });
-        };
-
+    };
     </script>
 </head>
 <body>
