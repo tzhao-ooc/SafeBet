@@ -30,12 +30,17 @@
             fetch('/nflodds')
             .then(response => response.json())
             .then(data => {
-    
+                
+                let counter = 0;
                 let output = '';
                 data.forEach(game => {
                     let oddsText = "";
                     let bookmakerName = game.bookmakers[0].title;
 
+                    let betButtonA = "betbutton" + counter;
+                    counter++;
+                    let betButtonB = "betbutton" + counter;
+                    counter++;
 
                     let h2hMarket = game.bookmakers[0].markets.find(market => market.key === "h2h");
                     if (h2hMarket) {
@@ -45,19 +50,54 @@
                         // Removing the trailing comma and space
                         oddsText = oddsText.slice(0, -2);
                     }               
-
+                    
                     output += `
                         <div class="game">
                             <div class="team-info">
                                 <div class="team-name">${game.home_team}</div>
                                 <div class="team-odds">${oddsText.split(",")[0]}</div>
-                                <button class="betButton" data-team="${game.home_team}" data-odds="${oddsText.split(",")[0]}"data-against="${game.away_team}" >Bet</button>
+                                <form action="/currentBets/placeBet" method="post">
+                                    <fieldset>
+                                        <p>
+                                            <label for = "username"> Username </label>
+                                            <input type="text" id="username" name="username" class="usrInput">
+                                        </p>
+                                        <p>
+                                            <label for = "betAmount"> Bet Amount </label>
+                                            <input type="text" id="betAmount" name="betAmount" class="usrInput">
+                                        </p>
+                                        
+                                        <input type="hidden" id="data-team" name="data-team" value="${game.home_team}">
+                                        <input type="hidden" id="data-odds" name="data-odds" value="${oddsText.split(",")[0]}">
+                                        <input type="hidden" id="data-against" name="data-against" value="${game.away_team}">
+                                        
+                                        <input id="${betButtonA}" class="btn" type="submit" >
+                                    </fieldset>
+                                </form>
                             </div>
                             <div class="versus">vs</div>
                             <div class="team-info">
                                 <div class="team-name">${game.away_team}</div>
                                 <div class="team-odds">${oddsText.split(",")[1]}</div>
-                                <button class="betButton" data-team="${game.away_team}" data-odds="${oddsText.split(",")[1]}" data-against="${game.home_team}">Bet</button>
+                                <form action="/currentBets/placeBet" method="post">
+                                    <fieldset>
+                                        <p>
+                                            <label for = "username"> Username </label>
+                                            <input type="text" id="username" name="username" class="usrInput">
+                                        </p>
+                                        <p>
+                                            <label for = "betAmount"> Bet Amount </label>
+                                            <input type="text" id="betAmount" name="betAmount" class="usrInput">
+                                        </p>
+                                        
+                                        <input type="hidden" id="data-team" name="data-team" value="${game.away_team}">
+                                        <input type="hidden" id="data-odds" name="data-odds" value="${oddsText.split(",")[0]}">
+                                        <input type="hidden" id="data-against" name="data-against" value="${game.home_team}">
+                                        
+                                        <input id="${betButtonB}" class="btn" type="submit" >
+                                    </fieldset>
+                                </form>
+                               
                             </div>
                         </div>`;
                 });

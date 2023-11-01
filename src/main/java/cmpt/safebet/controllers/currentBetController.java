@@ -29,7 +29,7 @@ public class currentBetController {
     @Autowired
     private currentBetRepository cbRepo;
 
-    @PostMapping("/placeBet")
+    @PostMapping("/currentBets/placeBet")
     public String placeBet(@RequestParam Map<String, String> newBet, HttpServletResponse response){
         
         
@@ -37,26 +37,35 @@ public class currentBetController {
         // the password is not asked for ease of testing. we can easily ask for username and password here, but
         // there is no point if we're going to change it later.
 
+        System.out.println("ADD currentBet");
 
         // You need to tie newBet to some function in a js file for gamestoday.html. Probably best to use form actions. 
         // see signup for an example.
         // also have to tie newbet so you can replace the dummy values.
+        
         String username = newBet.get("username");
-        int betAmount = Integer.valueOf(newBet.get("amount"));
+        int betAmount = Integer.parseInt(newBet.get("betAmount"));
+
+        System.out.println(username + " " + betAmount);
         List<User> userlist = userRepo.findByName(username);
 
+        if( userlist.isEmpty()) {
+            return "/currentBets/noUserFound";
+        }
         // THese are dummy values that you have to replace with the values inhereted from GamesToday using newBet!!
         // see buttonclass in gamestoday.html line 53 and 59!! Use gamestoday.js to send info to this controller.
-        String betTeam = "A";
-        String betMatchup = "B";
-        float betOdds = 2.5f;
+        String betTeam = newBet.get("data-team");
+        String betMatchup = newBet.get("data-against");
+        String betO = newBet.get("data-odds");
+        float betOdds = Float.valueOf((betO));
+        System.out.println(betTeam + " " + betMatchup + " " + betOdds);
 
         //if user is NOT in Users table, return.
-        // finish template file noUserFound
         if (userlist.isEmpty()){
             return "currentBets/noUserFound";
         }
 
+        
         // username exists in database
         else {
             
