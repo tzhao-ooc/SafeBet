@@ -50,13 +50,13 @@
                             <div class="team-info">
                                 <div class="team-name">${game.home_team}</div>
                                 <div class="team-odds">${oddsText.split(",")[0]}</div>
-                                <button class="betButton" data-team="${game.home_team}" data-odds="${oddsText.split(",")[0]}">Bet</button>
+                                <button class="betButton" data-team="${game.home_team}" data-odds="${oddsText.split(",")[0]}"data-against="${game.away_team}" >Bet</button>
                             </div>
                             <div class="versus">vs</div>
                             <div class="team-info">
                                 <div class="team-name">${game.away_team}</div>
                                 <div class="team-odds">${oddsText.split(",")[1]}</div>
-                                <button class="betButton" data-team="${game.away_team}" data-odds="${oddsText.split(",")[1]}">Bet</button>
+                                <button class="betButton" data-team="${game.away_team}" data-odds="${oddsText.split(",")[1]}" data-against="${game.home_team}">Bet</button>
                             </div>
                         </div>`;
                 });
