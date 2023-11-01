@@ -13,7 +13,7 @@ public class currentBet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int betID;
-    private int betAmmount;
+    private int betAmount;
     private String username;
     private String betTeam;
     private String betMatchup;
@@ -22,8 +22,8 @@ public class currentBet {
     public currentBet() {
 
     }
-    public currentBet(int betAmmount, String username, String betTeam, String betMatchup, float betOdds) {
-        this.betAmmount = betAmmount;
+    public currentBet(int betAmount, String username, String betTeam, String betMatchup, float betOdds) {
+        this.betAmount = betAmount;
         this.username = username;
         this.betTeam = betTeam;
         this.betMatchup = betMatchup;
@@ -37,10 +37,10 @@ public class currentBet {
         this.betID = betID;
     }
     public int getBetAmount() {
-        return betAmmount;
+        return betAmount;
     }
-    public void setBetAmount(int betAmmount) {
-        this.betAmmount = betAmmount;
+    public void setBetAmount(int betAmount) {
+        this.betAmount = betAmount;
     }
     public String getUsername() {
         return username;

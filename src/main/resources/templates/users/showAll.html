@@ -16,10 +16,12 @@
                         <span th:text="${user.name}"></span> <br>
                         <span th:text="${user.password}"></span>
                         <div th:switch="${user.name}">
-                            <span th:case="'John'"> This is John </span>
+                            <span th:case="'Johnn'"> This is John </span>
                             <span th:case="'Anne'"> Anne here </span>
                             <span th:case="*">General user</span>
                         </div>
+                        <span th:text="${user.balance}"></span>
+                        <!-- <span th:text="${user.wins}"></span> -->
                     </li>
                 </ul>
             </div>

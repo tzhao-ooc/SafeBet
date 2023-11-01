@@ -121,6 +121,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+
+    // Known bug:
+    // Password confirmation can be bypassed by changing the desired password
+    // after entering matching passwords.
     function checkConfrimP (evt) {
         var obj = evt.target;
         var pwd = document.getElementsByName("password")[0].value;

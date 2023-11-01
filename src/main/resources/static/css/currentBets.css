@@ -1,0 +1,16 @@
+h1 {
+    text-align: center;
+}
+
+.bets, table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Bets</title>
+    <link rel="stylesheet" href="/css/currentBets.css">
+    <!-- <script src="/js/.js" type="text/javascript"></script> -->
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="./index.html">HOME</a> <br>
+            <a href="">USER PAGE</a> <br>
+            <a href="./gamestoday.html">GAMES ON TODAY</a> <br>
+            <a href="">BET OUTCOMES</a> <br>
+            <a href="./userstats.html">USER STATS</a> <br>
+            <a href="./currentBets.html">CURRENT BETS</a><br>
+        </nav>
+    </header>
+
+    <div class="bets" style="display: block;">
+        <h1>Current User Bets</h1>
+        <table>
+            <tr><th>Username</th><th>Team Pick</th><th>Team Matchup</th><th>Win Probability</th><th>Bet Amount</th></tr>
+            <tr th:each="currentBets:${us}"><td th:text="$currentBets.username"></td><td th:text="currentBets.betTeam"></td><td th:text="currentBets.betMatchup"></td><td th:text="currentBets.betOdds"></td><td th:text="currentBets.betAmount"></td></tr>
+        </table>
+    </div>
+
+</body>
+</html>
