@@ -45,7 +45,7 @@ public class UserController {
         // } else {
         //     return "users/userFail";
         // }
-        userRepo.save(new User(newName,newPwd,newEmail));
+        userRepo.save(new User(newName,newPwd,newEmail, 1000));
             response.setStatus(201);
             return "users/userAdded";
         
