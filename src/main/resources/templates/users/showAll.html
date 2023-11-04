@@ -4,26 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/currentBets.css">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> -->
 </head>
 <body>
+    <header>
+        <nav>
+            <a href="/">HOME</a> <br>
+            <a href="">USER PAGE</a> <br>
+            <a href="../gamestoday.html">GAMES ON TODAY</a> <br>
+            <a href="">BET OUTCOMES</a> <br>
+            <a href="../users/view">USER STATS</a> <br>
+            <a href="/currentBets/view">CURRENT BETS</a><br>
+        </nav>
+    </header>
+
     <main class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <h1>USERS</h1>
-                <ul>
-                    <li th:each="user:${us}">
-                        <span th:text="${user.name}"></span> <br>
-                        <span th:text="${user.password}"></span>
-                        <div th:switch="${user.name}">
-                            <span th:case="'Johnn'"> This is John </span>
-                            <span th:case="'Anne'"> Anne here </span>
-                            <span th:case="*">General user</span>
-                        </div>
-                        <span th:text="${user.balance}"></span>
-                        <!-- <span th:text="${user.wins}"></span> -->
-                    </li>
-                </ul>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Password</th>
+                                <th>Balance</th>
+                                <th>User Type</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr th:each="user:${us}">
+                                <td th:text="${user.name}"></td>
+                                <td th:text="${user.password}"></td>
+                                <td th:text="${user.balance}"></td>
+                                <div th:switch="${user.name}">
+                                    <td th:case="'Johnn'">This is John</td>
+                                    <td th:case="'Anne'">Anne is here</td> 
+                                    <td th:case="*">General User</td>
+                                </div>
+                            </tr>
+                        </tbody>
+                    </table>
             </div>
         </div>
     </main>

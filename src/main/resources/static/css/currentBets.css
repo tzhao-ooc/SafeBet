@@ -7,7 +7,7 @@ h1 {
     margin-right: auto;
 }
 
-table, th, td {
+table, tbody, th, td {
     border: 1px solid black;
 }
 

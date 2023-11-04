@@ -29,6 +29,14 @@ public class currentBetController {
     @Autowired
     private currentBetRepository cbRepo;
 
+    @GetMapping("/currentBets/view")
+    public String getAllCurrentBets(Model model) {
+        System.out.println("Getting all current bets");
+        List<currentBet> currentBets = cbRepo.findAll();
+        model.addAttribute("us", currentBets);
+        return "currentBets/displayCurrBets";
+    }
+
     @PostMapping("/currentBets/placeBet")
     public String placeBet(@RequestParam Map<String, String> newBet, HttpServletResponse response){
         
