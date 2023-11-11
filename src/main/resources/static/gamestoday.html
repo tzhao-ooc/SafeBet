@@ -127,7 +127,17 @@
                             awayScore = awayTeamScore.score || 0;
                         }
                     }
-                    let gameStatus = game.status === "completed" ? "Completed" : "Ongoing";
+                    // let gameStatus = game.status === true ? "Completed" : "Ongoing";
+                    // need to check for game.completed was checking status
+                    let gameStatus;
+
+                    if (game.completed === true) {
+                        gameStatus = "Completed";
+                    } 
+                    else {
+                        gameStatus = "Ongoing";
+                    }
+
 
                     outputScores += `
                     <div class="game">

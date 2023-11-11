@@ -45,6 +45,10 @@ h2 {
     align-items: center;
     margin-top: 10px;
     font-weight: bold;
+    /* Made changes to how the current scores are displayed need to edit
+    and make better/cleaner May have to make a new div name for scores container*/
+    width: 100%;
+    text-align: center;
 }
 
 .modal {
