@@ -38,7 +38,7 @@ public class currentBetController {
     }
 
     @PostMapping("/currentBets/placeBet")
-    public String placeBet(@RequestParam Map<String, String> newBet, HttpServletResponse response){
+    public String placeBet(@RequestParam Map<String, String> newBet, HttpServletResponse response, Model model, HttpServletRequest request, HttpSession session){
         
         
         // later on this will also cross reference userID. We need to tweak the login functionality though.
@@ -51,7 +51,8 @@ public class currentBetController {
         // see signup for an example.
         // also have to tie newbet so you can replace the dummy values.
         
-        String username = newBet.get("username");
+        User userN = (User) session.getAttribute("session_user");
+        String username =  userN.getName(); 
         int betAmount = Integer.parseInt(newBet.get("betAmount"));
 
         System.out.println(username + " " + betAmount);

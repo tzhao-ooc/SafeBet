@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Safebet</title>
-    <script src="/js/indexScript.js"></script>
+    <!-- <script src="/js/indexScript.js"></script> -->
     <link rel="stylesheet" href="/css/navbar.css">
 </head>
 <body>
@@ -13,14 +13,14 @@
         user page, games on today, bet outcomes, and user stats-->
         <nav id="navbar">
             <ul>
-              <li><a href="index.html">HOME</a></li>
-              <li><a href="user_page.html">USER PAGE</a></li>
-              <li><a href="gamestoday.html">GAMES ON TODAY</a></li>
-              <li><a href="bet_outcomes.html">BET OUTCOMES</a></li>
-              <li><a href="user_stats.html">USER STATS</a></li>
-              <li><a href="currentBets.html">CURRENT BETS</a></li>
+              <li><a href="/">HOME</a></li>
+              <!-- <li><a href="./users/view">USER PAGE</a></li> -->
+              <li><a href="/login">GAMES ON TODAY</a></li>
+              <!-- <li><a href="bet_outcomes.html">BET OUTCOMES</a></li> -->
+              <li><a href="users/view">USER STATS</a></li>
+              <li><a href="currentBets/view">CURRENT BETS</a></li>
             </ul>
-          </nav>
+        </nav>
 
     </header>
     <!-- this is where our main information for each page is -->
@@ -31,7 +31,7 @@
         
         <!--sending all the information below for the form to an endpoint called submit!!!!-->
         <form action="/login" method="post">
-            <fieldset>
+            <!-- <fieldset>
                 <legend>LOGIN</legend>
                 <p>
                     <label for = "username "> Username </label>
@@ -40,7 +40,8 @@
                 <p>
                     <label for = "password"> Password </label>
                     <input type="text" id = "password" name="password" placeholder="enter pass" class="loginInput">
-                </p>
+                </p> -->
+                Login to start betting!
                 <input id="submitBTN" class="btn" type="submit" value="Login">
                 
                 <!-- signup path -->
@@ -48,7 +49,7 @@
                 
 
 
-            </fieldset>
+            <!-- </fieldset> -->
         </form><br>
         
         [insert info about popular bets here / betting suggestions]<br><br>

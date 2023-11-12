@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Safebet</title>
-    <script src="/js/indexScript.js"></script>
+    <script src="/js/loginScript.js"></script>
     <link rel="stylesheet" href="/css/gamestoday.css">
     <link rel="stylesheet" href="/css/navbar.css">
 
@@ -14,10 +14,10 @@
         user page, games on today, bet outcomes, and user stats-->
         <nav id="navbar">
             <ul>
-              <li><a href="index.html">HOME</a></li>
+              <li><a href="./index.html">HOME</a></li>
               <li><a href="user_page.html">USER PAGE</a></li>
               <li><a href="gamestoday.html">GAMES ON TODAY</a></li>
-              <li><a href="bet_outcomes.html">BET OUTCOMES</a></li>
+              <!-- <li><a href="bet_outcomes.html">BET OUTCOMES</a></li> -->
               <li><a href="user_stats.html">USER STATS</a></li>
               <li><a href="currentBets.html">CURRENT BETS</a></li>
             </ul>
@@ -52,7 +52,7 @@
                         // Removing the trailing comma and space
                         oddsText = oddsText.slice(0, -2);
                     }               
-                    
+
                     output += `
                         <div class="game">
                             <div class="team-info">
@@ -60,15 +60,13 @@
                                 <div class="team-odds">${oddsText.split(",")[0]}</div>
                                 <form action="/currentBets/placeBet" method="post">
                                     <fieldset>
-                                        <p>
-                                            <label for = "username"> Username </label>
-                                            <input type="text" id="username" name="username" class="usrInput">
-                                        </p>
+                                    
                                         <p>
                                             <label for = "betAmount"> Bet Amount </label>
                                             <input type="text" id="betAmount" name="betAmount" class="usrInput">
                                         </p>
                                         
+                                        <input type="hidden" id="username" name="username" value="${user.username}">
                                         <input type="hidden" id="data-team" name="data-team" value="${game.home_team}">
                                         <input type="hidden" id="data-odds" name="data-odds" value="${oddsText.split(",")[0]}">
                                         <input type="hidden" id="data-against" name="data-against" value="${game.away_team}">
@@ -83,15 +81,14 @@
                                 <div class="team-odds">${oddsText.split(",")[1]}</div>
                                 <form action="/currentBets/placeBet" method="post">
                                     <fieldset>
-                                        <p>
-                                            <label for = "username"> Username </label>
-                                            <input type="text" id="username" name="username" class="usrInput">
-                                        </p>
+                                        
+                                        
                                         <p>
                                             <label for = "betAmount"> Bet Amount </label>
                                             <input type="text" id="betAmount" name="betAmount" class="usrInput">
                                         </p>
                                         
+                                        <input type="hidden" id="username" name="username" value="${user.username}">
                                         <input type="hidden" id="data-team" name="data-team" value="${game.away_team}">
                                         <input type="hidden" id="data-odds" name="data-odds" value="${oddsText.split(",")[0]}">
                                         <input type="hidden" id="data-against" name="data-against" value="${game.home_team}">
@@ -162,6 +159,7 @@
 
     });
     };
+
     </script>
 </head>
 <body>
