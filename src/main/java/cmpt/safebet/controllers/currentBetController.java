@@ -57,6 +57,8 @@ public class currentBetController {
 
         System.out.println(username + " " + betAmount);
         List<User> userlist = userRepo.findByName(username);
+        
+
 
         if( userlist.isEmpty()) {
             return "/currentBets/noUserFound";
@@ -67,17 +69,23 @@ public class currentBetController {
         String betMatchup = newBet.get("data-against");
         String betO = newBet.get("data-odds");
         float betOdds = Float.valueOf((betO));
-        System.out.println(betTeam + " " + betMatchup + " " + betOdds);
+        System.out.println(userlist);
+        
 
-        //if user is NOT in Users table, return.
-        if (userlist.isEmpty()){
-            return "currentBets/noUserFound";
+        User user = userlist.remove(0);
+        //if balance is less than betamount, we cant make that bet (no negative balance allowed!!)
+        if(user.getBalance() < betAmount)
+        {
+            return "/currentBets/insufficient";
         }
-
+        
         
         // username exists in database
         else {
+
             
+            int bal = user.getBalance();
+            user.setBalance(bal - betAmount);
             cbRepo.save(new currentBet(betAmount, username, betTeam, betMatchup, betOdds));
             response.setStatus(201);
 
