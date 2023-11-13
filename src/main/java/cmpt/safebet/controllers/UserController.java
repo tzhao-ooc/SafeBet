@@ -42,14 +42,18 @@ public class UserController {
         String newPwd = newuser.get("password");
         String newEmail = newuser.get("usrEmail");
         String confirmP = newuser.get("comfirmP");
-        // if (newEmail == confirmP) {
-            
-        // } else {
-        //     return "users/userFail";
-        // }
+        
+        List<User> users = userRepo.findByName(newName);
+
+        if (users.isEmpty() == true){
         userRepo.save(new User(newName,newPwd,newEmail, 1000));
             response.setStatus(201);
             return "users/userAdded";
+        }
+
+        else{
+            return "users/samename";
+        }
         
     }
 
