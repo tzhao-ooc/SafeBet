@@ -1,56 +1,39 @@
-
-html{
-
+html {
     background-color: rgb(10, 84, 93);
 }
 
-h1{
-    color:rgb(137, 153, 158);
+h1 {
+    color: rgb(137, 153, 158);
     font-family: Arial;
     font-size: 40px;
     font-weight: lighter;
     text-align: center;
     margin-top: 25vh;
-    height: 5vh;
 }
 
-/* I dont know how to center this box bahaha */
-form{
+form {
     font-family: Arial;
     font-size: 15px;
     font-weight: bolder;
     display: grid;
     justify-content: center;
     align-items: center;
-    
+    padding: 20px; /* 添加内边距 */
 }
-fieldset{
 
+fieldset {
     background-color: rgb(137, 153, 158);
-    background-size: 20px 5px;
     display: grid;
     justify-content: center;
     align-items: center;
     min-width: 350px;
     border: none;
-
 }
 
-footer{
-    color:rgb(137, 153, 158);
+footer {
+    color: rgb(137, 153, 158);
     font-size: 18px;
     position: fixed;
     bottom: 8px;
     left: 8px;
 }
-
-.errorMsg {
-	color:  red;
-	margin: 0px 0px 0px 0px;
-	position: relative;
-	left: 64px;
-	padding: 0px;
-	font-style: italic;
-	font-size: 0.8em;
-}
-

@@ -2,71 +2,137 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;  /
+    gap: 20px;
 }
+
 h2 {
     text-align: center;
+    color: #444; /* 标题颜色调整 */
 }
 
-.game {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: calc(33% - 20px);  
-    padding: 10px;
-    border: 1px solid #e0e0e0;  
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);  
-}
-
-.team-info {
+body {
     display: flex;
     flex-direction: column;
-    align-items: center;
-}
-
-.team-name {
-    font-size: 16px;  
-}
-
-.team-odds {
-    font-size: 14px;  
-    color: #333;     
-}
-
-.versus {
-    margin: 0 15px;
-    font-size: 16px;
-}
-
-/* New styles for game status */
-.game-status {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 10px;
-    font-weight: bold;
-    /* Made changes to how the current scores are displayed need to edit
-    and make better/cleaner May have to make a new div name for scores container*/
-    width: 100%;
+    min-height: 100vh;
+  }
+  
+  footer {
+    margin-top: auto;
+    background-color: #333;
+    color: white;
     text-align: center;
-}
-
-.modal {
-    display: none; 
-    position: fixed;
-    z-index: 1; 
-    left: 0;
-    top: 0;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
     width: 100%;
-    height: 100%;
-    overflow: auto; 
-    background-color: rgba(0,0,0,0.4); 
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
+  }
+  
+  /* Game Cards Layout */
+  .game {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid #ddd;
+    margin: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .team-info {
+    text-align: center;
+  }
+  
+  .team-name {
+    font-weight: bold;
+  }
+  
+  .team-odds, .team-score {
+    margin-top: 5px;
+  }
+  
+  .versus {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  /* Add some padding to the main content area */
+  #gamesContainer, #scoresContainer {
     padding: 20px;
-    border: 1px solid #888;
-    width: 30%;
+  }
+  
+  /* Add some styles to the forms and inputs */
+  form {
+    margin-top: 10px;
+  }
+  
+  input[type="text"].usrInput {
+    padding: 5px;
+    margin: 5px 0;
+  }
+  
+  input[type="submit"].btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  input[type="submit"].btn:hover {
+    background-color: #0056b3;
+  }
+
+  /* Game Cards */
+  .game-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    margin: 1rem;
+  }
+  
+  /* 调整每个游戏卡片 */
+  .game-card {
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* 调整 VS 的样式 */
+  .vs {
+    font-weight: bold;
+    margin: 0 1rem;
+  }
+  
+  /* 调整页脚始终位于页面底部 */
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 0.5rem 0;
+  }
+  
+  /* 响应式设计：在小屏幕上调整布局 */
+  @media (max-width: 768px) {
+    .game-container {
+      grid-template-columns: 1fr;
+    }
+  
+    .game-card {
+      flex-direction: column;
+    }
+  }
+  
+/* 响应式调整 */
+@media (max-width: 1380px) {
+    .game {
+        width: calc(50% - 20px); /* 中等屏幕尺寸，比如平板电脑，为两列布局 */
+    }
 }

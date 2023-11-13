@@ -1,16 +1,63 @@
 h1 {
     text-align: center;
+    font-size: 24px; /* 调整标题字体大小 */
+    color: #333; /* 更深的文字颜色 */
 }
 
-.bets, table {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-table, tbody, th, td {
-    border: 1px solid black;
+.table-container {
+    padding: 20px;
+    background: #ffffff;
+    margin: 20px auto;
+    width: 80%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 table {
+    width: 100%;
     border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+table th,
+table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #dddddd;
+}
+
+table th {
+    background-color: #009879;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background: #f4f4f4;
+    margin: 0;
+    padding: 0;
 }
