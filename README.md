@@ -9,7 +9,7 @@
 
 ### Database
 - User table Created: Store userid, username, password and email. We will add more information in later iterations such as role, age, etc.
-- Game and currency functionality to come soon.
+- current_bets table created: stores relevant bet information that will help determine gain/loss of currency.
 
 ### Group Dynamic
 - Effective communication
