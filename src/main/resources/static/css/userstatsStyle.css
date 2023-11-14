@@ -3,15 +3,15 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bold;
     text-align: center;
-    color: #444; /* 调整标题颜色 */
+    color: #444; 
 }
 
 table, th, td {
-    border: 1px solid #ddd; /* 更轻的边框颜色 */
+    border: 1px solid #ddd; 
 }
 
 table {
     border-collapse: collapse;
     text-align: center;
-    width: 100%; /* 宽度调整 */
+    width: 100%; 
 }

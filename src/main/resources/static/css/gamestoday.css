@@ -7,7 +7,7 @@
 
 h2 {
     text-align: center;
-    color: #444; /* 标题颜色调整 */
+    color: #444; 
 }
 
 body {
@@ -91,7 +91,6 @@ body {
     margin: 1rem;
   }
   
-  /* 调整每个游戏卡片 */
   .game-card {
     border: 1px solid #ddd;
     padding: 0.5rem;
@@ -101,13 +100,11 @@ body {
     align-items: center;
   }
   
-  /* 调整 VS 的样式 */
   .vs {
     font-weight: bold;
     margin: 0 1rem;
   }
   
-  /* 调整页脚始终位于页面底部 */
   .footer {
     position: fixed;
     left: 0;
@@ -119,7 +116,6 @@ body {
     padding: 0.5rem 0;
   }
   
-  /* 响应式设计：在小屏幕上调整布局 */
   @media (max-width: 768px) {
     .game-container {
       grid-template-columns: 1fr;
@@ -130,9 +126,8 @@ body {
     }
   }
   
-/* 响应式调整 */
 @media (max-width: 1380px) {
     .game {
-        width: calc(50% - 20px); /* 中等屏幕尺寸，比如平板电脑，为两列布局 */
+        width: calc(50% - 20px); 
     }
 }

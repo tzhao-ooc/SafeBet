@@ -44,8 +44,6 @@
                                 <td th:text="${user.password}"></td>
                                 <td th:text="${user.balance}"></td>
                                 <div th:switch="${user.name}">
-                                    <td th:case="'Johnn'">This is John</td>
-                                    <td th:case="'Anne'">Anne is here</td> 
                                     <td th:case="*">General User</td>
                                 </div>
                             </tr>
