@@ -24,7 +24,11 @@
             </ul>
         </nav>
     </header>
-
+    <header>
+        <form action="/betRecord/redeem" method="post">
+            <button type="submit">REDEEM FINISHED GAMES</button>
+        </form>
+    </header>
     <!-- get the odds information-->
     <script>
         window.onload = function() {
@@ -70,6 +74,7 @@
                                         <input type="hidden" id="data-team" name="data-team" value="${game.home_team}">
                                         <input type="hidden" id="data-odds" name="data-odds" value="${oddsText.split(",")[0]}">
                                         <input type="hidden" id="data-against" name="data-against" value="${game.away_team}">
+                                        <input type="hidden" id="data-id" name="data-id" value="${game.id}">
                                         
                                         <input id="${betButtonA}" class="btn" type="submit" >
                                     </fieldset>
@@ -91,6 +96,7 @@
                                         <input type="hidden" id="data-team" name="data-team" value="${game.away_team}">
                                         <input type="hidden" id="data-odds" name="data-odds" value="${oddsText.split(",")[0]}">
                                         <input type="hidden" id="data-against" name="data-against" value="${game.home_team}">
+                                        <input type="hidden" id="data-id" name="data-id" value="${game.id}">
                                         
                                         <input id="${betButtonB}" class="btn" type="submit" >
                                     </fieldset>

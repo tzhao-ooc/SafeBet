@@ -54,11 +54,12 @@ public class currentBetController {
         User userN = (User) session.getAttribute("session_user");
         String username =  userN.getName(); 
         int betAmount = Integer.parseInt(newBet.get("betAmount"));
+        String gameID = newBet.get("data-id");
 
         System.out.println(username + " " + betAmount);
         List<User> userlist = userRepo.findByName(username);
         
-
+        
 
         if( userlist.isEmpty()) {
             return "/currentBets/noUserFound";
@@ -86,7 +87,7 @@ public class currentBetController {
             
             int bal = user.getBalance();
             user.setBalance(bal - betAmount);
-            cbRepo.save(new currentBet(betAmount, username, betTeam, betMatchup, betOdds));
+            cbRepo.save(new currentBet(gameID, betAmount, username, betTeam, betMatchup, betOdds));
             response.setStatus(201);
 
             // do a template for this!!

@@ -5,6 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface currentBetRepository extends JpaRepository<currentBet, Integer> {
     List<currentBet> findByUsername(String username);
-   
     
 }
