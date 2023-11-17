@@ -43,9 +43,10 @@ div a:hover {
 footer {
     background-color: #333;
     color: white;
-    text-align: center;
+    /* text-align: center; */
     padding: 10px 0;
-    position: relative;
+    position: fixed;
     bottom: 0;
+    left: 0;
     width: 100%;
 }
