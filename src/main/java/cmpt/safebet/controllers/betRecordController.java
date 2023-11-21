@@ -137,6 +137,9 @@ public class betRecordController {
     List<betRecord> recordBets = brRepo.findByUsername(username);
     model.addAttribute("userBets", recordBets);
     
+    List<User> currentuser = userRepo.findByName(username);
+    User currentUser = currentuser.remove(0);
+    model.addAttribute("userInfo", currentUser);
     //cbRepo.save(new currentBet("ad2140bcb78fd6f6d37bee937bfa4d90", 300, "Eggstrovert", "Baltimore Ravens", "Cincinnati Bengals", 3.0f));
     return "/betRecord/profile";
 }
