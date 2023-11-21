@@ -7,7 +7,7 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class NFLController {
 
-    private static final String API_KEY = "d25e2751f1dc3ce0312aba74a09410bb";
+    private static final String API_KEY = "90e3643532c2694e90b6a06071bda14a";
     private static final String ODDS_URL = "https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds/";
     private static final String SCORES_URL = "https://api.the-odds-api.com/v4/sports/americanfootball_nfl/scores/";
 

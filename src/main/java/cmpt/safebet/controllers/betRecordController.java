@@ -71,7 +71,7 @@ public class betRecordController {
         // API score data
         // First we get the string then iterate through it using json stuff library stuff.
         //
-        String API_KEY = "d25e2751f1dc3ce0312aba74a09410bb";
+        String API_KEY = "90e3643532c2694e90b6a06071bda14a";
         String SCORES_URL = "https://api.the-odds-api.com/v4/sports/americanfootball_nfl/scores/";
         String url = SCORES_URL + "?apiKey=" + API_KEY + "&daysFrom=3";
         RestTemplate restTemplate = new RestTemplate();
