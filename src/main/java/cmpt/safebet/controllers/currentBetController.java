@@ -59,11 +59,6 @@ public class currentBetController {
         System.out.println(username + " " + betAmount);
         List<User> userlist = userRepo.findByName(username);
         
-        
-
-        if( userlist.isEmpty()) {
-            return "/currentBets/noUserFound";
-        }
         // THese are dummy values that you have to replace with the values inhereted from GamesToday using newBet!!
         // see buttonclass in gamestoday.html line 53 and 59!! Use gamestoday.js to send info to this controller.
         String betTeam = newBet.get("data-team");
@@ -89,7 +84,7 @@ public class currentBetController {
             user.setBalance(bal - betAmount);
             cbRepo.save(new currentBet(gameID, betAmount, username, betTeam, betMatchup, betOdds));
             response.setStatus(201);
-
+            
             // do a template for this!!
             return "currentBets/betPlaced";
         }

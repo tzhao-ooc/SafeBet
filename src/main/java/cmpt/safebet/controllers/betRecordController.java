@@ -39,15 +39,15 @@ public class betRecordController {
     private betRecordRepository brRepo;
 
     
-    @GetMapping("/betRecord/profileTable")
+    @GetMapping("/betRecord/redeem")
     public String results(Model model, HttpSession session){
 
         // ok so what's going on here is we get a list of the current bets of the session user.
         // These bets shuold be displayed in a table on the page similar to how they are on the user stats page.
-        User userN = (User) session.getAttribute("session_user");
-        String username =  userN.getName(); 
-        List<currentBet> currentBets = cbRepo.findByUsername(username);
-        model.addAttribute("userBets", currentBets);
+        // User userN = (User) session.getAttribute("session_user");
+        // String username =  userN.getName(); 
+        List<betRecord> recordBets = brRepo.findAll();
+        model.addAttribute("userBets", recordBets);
 
         return "/betRecord/profile";
     }
@@ -131,13 +131,13 @@ public class betRecordController {
 
                 }
             }
-
-            
-
-
-
-        
     }
+
+    // List<betRecord> recordBets = brRepo.findAll();
+    List<betRecord> recordBets = brRepo.findByUsername(username);
+    model.addAttribute("userBets", recordBets);
+    
+    //cbRepo.save(new currentBet("ad2140bcb78fd6f6d37bee937bfa4d90", 300, "Eggstrovert", "Baltimore Ravens", "Cincinnati Bengals", 3.0f));
     return "/betRecord/profile";
 }
 }
