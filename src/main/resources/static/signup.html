@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeBet Signup</title>
+    <link rel="stylesheet" href="/css/signupStyle.css">
+    <script src="/js/signupScript.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="/css/navbar.css">
+
+</head>
+
+<body>
+    <header>
+        <nav id="navbar">
+            <ul>
+              <li><a href="index.html">HOME</a></li>
+              <!-- <li><a href="./users/view">USER PAGE</a></li> -->
+              <li><a href="/login">GAMES ON TODAY</a></li>
+              <!-- <li><a href="bet_outcomes.html">BET OUTCOMES</a></li> -->
+              <li><a href="users/view">USER STATS</a></li>
+              <li><a href="currentBets/view">CURRENT BETS</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+
+        <h1>SIGN UP</h1>
+        <!-- <form action="/submit"> -->
+        <form action="/users/add" method="post">
+            <fieldset>
+                <p>
+                    <label for = "email"> Email </label>
+                    <input type="text" id = "email" name="usrEmail" placeholder="example@email.com"  class="usrInput">
+                </p>
+                <p>
+                    <label for = "username "> Pick a Username </label>
+                    <input type="text" id = "username" name="username" placeholder="username" class="usrInput">
+                </p>
+                <p>
+                    <label for = "password"> Create a Password </label>
+                    <input type="text" id = "password" name="password" placeholder="new password" class="usrInput">
+                </p>
+                <p>
+                    <label for = "comfrimpwd"> Confirm Password </label>
+                    <input type="text" id = "confirmP" name="confirmP" placeholder="confrim password" class="usrInput">
+                </p>
+                <!-- Email: <br><br> -->
+                <!-- Pick a Username: <input type="text" id = "username" name="name"><br><br> -->
+                <!-- Create a Password: <input type="text" id = "password" name="password"><br><br>
+                Confirm Password: <input type="text" id = "confirmP" name="confirmP"><br><br> -->
+                <!-- <input class="btn" type="submit" value="Create"> -->
+                <input id="submitBTN" class="btn" type="submit" value="Submit" disabled>
+    
+            </fieldset>
+    
+        </form>
+    </main> 
+    <footer>
+        Copyright SafeBet 2023
+    </footer>
+    
+
+</body>
+</html>

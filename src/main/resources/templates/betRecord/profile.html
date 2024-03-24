@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="../css/currentBets.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+</head>
+<body>
+    <!-- have username here, email, in the future some more relevant information like join date maybe. -->
+    <!-- here have current balance -->
+    <!-- Here have the current bets of that user, those that are ready to be redeemed have a button that can be pressed. -->
+    <header>
+        <!-- here is the navigation bar where we will have home
+        user page, games on today, bet outcomes, and user stats-->
+        <nav id="navbar">
+            <ul>
+              <li><a href="../../index.html">HOME</a></li>
+              <!-- <li><a href="./view">USER PAGE</a></li> -->
+              <li><a href="/login">GAMES ON TODAY</a></li>
+              <!-- <li><a href="bet_outcomes.html">BET OUTCOMES</a></li> -->
+              <li><a href="../users/view">USER STATS</a></li>
+              <li><a href="../currentBets/view">CURRENT BETS</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Your current Balance</th>
+            </tr>
+        </thead>
+        <tbody>
+                <td th:text="${userInfo.balance}"></td>
+        </tbody>
+    </table>
+    
+
+    <main class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <h1>Betting History</h1>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Gains/Losses</th>
+                                <th>Payout</th>
+                                <th>Winning Team</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr th:each="recordBets:${userBets}">
+                                <td th:text="${recordBets.username}"></td>
+                                <td th:text="${recordBets.gainLoss}"></td>
+                                <td th:text="${recordBets.betOdds}"></td>
+                                <td th:text="${recordBets.winningTeam}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+    </main>
+
+
+    <header>
+        Your winnings have been redeemed!
+        (if you had any to be redeemed)
+    </header>
+</body>
+</html>

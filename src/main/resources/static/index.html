@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safebet</title>
+    <!-- <script src="/js/indexScript.js"></script> -->
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    <header>
+        <!-- here is the navigation bar where we will have home
+        user page, games on today, bet outcomes, and user stats-->
+        <nav id="navbar">
+            <ul>
+              <li><a href="/">HOME</a></li>
+              <!-- <li><a href="./users/view">USER PAGE</a></li> -->
+              <li><a href="/login">GAMES ON TODAY</a></li>
+              <!-- <li><a href="bet_outcomes.html">BET OUTCOMES</a></li> -->
+              <li><a href="users/view">USER STATS</a></li>
+              <li><a href="currentBets/view">CURRENT BETS</a></li>
+            </ul>
+        </nav>
+
+    </header>
+    <!-- this is where our main information for each page is -->
+    <!-- cannot have id with same name somewhere else-->
+    <main id="mainpart">
+        <h1>SAFEBET</h1>
+        <!-- SafeBet will be a betting web application for users who want to experience gambling without the risk of using their own money. Users will be provided with a set amount of a valueless, digital currency to use when they create their initial account, which will allow them to bet on upcoming games.<br><br> -->
+        SafeBet is a virtual sports betting site where you can gamble without the risk of losing real money. <br>
+        Signup today and receive 1000 credit of our valueless currency to bet on your favourite teams!
+
+        <!--sending all the information below for the form to an endpoint called submit!!!!-->
+        <form action="/login" method="post">
+            <!-- <fieldset>
+                <legend>LOGIN</legend>
+                <p>
+                    <label for = "username "> Username </label>
+                    <input type="text" id = "username" name="username" placeholder="enter user" class="loginInput">
+                </p>
+                <p>
+                    <label for = "password"> Password </label>
+                    <input type="text" id = "password" name="password" placeholder="enter pass" class="loginInput">
+                </p> -->
+                Login to start betting!
+                <input id="submitBTN" class="btn" type="submit" value="Login">
+                
+                <!-- signup path -->
+                <div> Dont have an account yet? <a href="./signup.html">Sign up</a> to start betting!</div>
+                
+
+
+            <!-- </fieldset> -->
+        </form><br>
+        
+
+    </main>
+    <footer>
+        COPYRIGHT SAFEBET
+    </footer>
+</body>
+</html>

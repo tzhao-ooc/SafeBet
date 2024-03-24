@@ -1,0 +1,133 @@
+#gamesContainer, #scoresContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+h2 {
+    text-align: center;
+    color: #444; 
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  footer {
+    margin-top: auto;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  /* Game Cards Layout */
+  .game {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid #ddd;
+    margin: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .team-info {
+    text-align: center;
+  }
+  
+  .team-name {
+    font-weight: bold;
+  }
+  
+  .team-odds, .team-score {
+    margin-top: 5px;
+  }
+  
+  .versus {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  /* Add some padding to the main content area */
+  #gamesContainer, #scoresContainer {
+    padding: 20px;
+  }
+  
+  /* Add some styles to the forms and inputs */
+  form {
+    margin-top: 10px;
+  }
+  
+  input[type="text"].usrInput {
+    padding: 5px;
+    margin: 5px 0;
+  }
+  
+  input[type="submit"].btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  input[type="submit"].btn:hover {
+    background-color: #0056b3;
+  }
+
+  /* Game Cards */
+  .game-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    margin: 1rem;
+  }
+  
+  .game-card {
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .vs {
+    font-weight: bold;
+    margin: 0 1rem;
+  }
+  
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 0.5rem 0;
+  }
+  
+  @media (max-width: 768px) {
+    .game-container {
+      grid-template-columns: 1fr;
+    }
+  
+    .game-card {
+      flex-direction: column;
+    }
+  }
+  
+@media (max-width: 1380px) {
+    .game {
+        width: calc(50% - 20px); 
+    }
+}
